@@ -1,3 +1,5 @@
+import math 
+
 def mle_bernoulli(k, n):
     """
     Menghitung Maximum Likelihood Estimation (MLE) untuk distribusi Bernoulli.
