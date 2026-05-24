@@ -1,3 +1,4 @@
+
 import math 
 
 def mle_bernoulli(k, n):
@@ -19,7 +20,7 @@ def mle_poisson(data_list):
         return 0
     return sum(data_list) / len(data_list)
 
-def beta_posterior_params(k, m):
+def beta_posterior(k, m):
     """
     Menghitung parameter Alpha dan Beta untuk distribusi Posterior Beta.
     Wajib menggunakan prior Uniform Beta(1,1), sehingga rumusnya menjadi +1.
