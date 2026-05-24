@@ -27,3 +27,10 @@ def beta_posterior_params(k, m):
     alpha_post = k + 1
     beta_post = m + 1
     return alpha_post, beta_post
+
+#TODO: Still not yet implementing the beta mean and mode
+def beta_mean():
+    raise NotImplementedError
+
+def beta_mode():
+    raise NotImplementedError
