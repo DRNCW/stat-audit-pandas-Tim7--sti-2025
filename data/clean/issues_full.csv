@@ -1,4 +1,187 @@
 number,title,type,created_at,resolution_days,yearmonth
+65685,"BUG: Index.where(..., Index) fails on 3.1.0 but works on 3.0.3",bug,2026-05-19 13:39:44+00:00,2.04,2026-05
+65684,ENH: Add `df.corrupt()` accessor to inject random faults and typos for Data Science education,other,2026-05-19 06:52:43+00:00,0.55,2026-05
+65553,ENH: Improve missing column KeyError message in DataFrame access,other,2026-05-09 11:18:01+00:00,0.21,2026-05
+65550,BUG:  `groupby` cumprod/cummin/cummax returns `Float64` for nullable integers when group key contains `NA`,bug,2026-05-08 22:56:54+00:00,6.53,2026-05
+65518,BUG: Conversion from np.ma.masked_array to pd.array does not preserve missing values,bug,2026-05-08 01:11:36+00:00,0.26,2026-05
+65472,DOC: Missing docstring for enable_data_resource_formatter in printing module,other,2026-05-05 17:33:36+00:00,0.94,2026-05
+65469,BUG: regression in nightlies: `Index.str.findall` crashes,other,2026-05-05 13:45:27+00:00,16.23,2026-05
+65462,DEP: update of fsspec 2026.4 broke compressed csv reading,other,2026-05-04 13:29:58+00:00,1.13,2026-05
+65380,PERF: skip to_datetime cache=True overhead for input shapes where it cannot help,other,2026-04-27 17:21:00+00:00,11.16,2026-04
+65375,BUG:  Index `&` operator performs bitwise AND instead of set intersection for int64 dtype in v2.2.3,other,2026-04-27 03:50:22+00:00,0.29,2026-04
+65369,"DOC: `to_numeric` ""Returns"" is missing Index and scalars, may have other problems",other,2026-04-25 23:30:58+00:00,9.92,2026-04
+65361,ENH: Introduce SECURITY.md,other,2026-04-24 15:03:57+00:00,4.27,2026-04
+65357,"BUG: df.query() returning an empty dataframe on this condition - col1 in (col2, col3)",bug,2026-04-24 08:53:11+00:00,9.21,2026-04
+65333,BUG: Series.combine_first fails when names are of type Timestamp,bug,2026-04-22 14:13:57+00:00,10.96,2026-04
+65315,BUG: DataFrame/Series.rename silently downcasts nullable index/column dtypes to NumPy dtypes,bug,2026-04-21 02:26:55+00:00,8.25,2026-04
+65227,"BUG: [REGRESSION] to_csv cannot handle FloatingArrays with np.nan, even with distinguish_nan_and_na=True",bug,2026-04-14 21:35:19+00:00,6.76,2026-04
+65226,CI regression: Doc Build and pre-commit jobs failing across multiple PRs,other,2026-04-14 18:16:16+00:00,0.9,2026-04
+65223,BUG: 1-element pd.NA boolean arrays are all() but not any(),other,2026-04-14 16:34:06+00:00,0.2,2026-04
+65220,BUG: `operation 'add' not supported for dtype 'string[pyarrow]' with dtype 'str'`,bug,2026-04-14 09:45:48+00:00,2.41,2026-04
+65218,"BUG: `DataFrame.agg([...], numeric_only=True)` returns `NaN` for non-numeric columns instead of excluding them",bug,2026-04-13 23:48:06+00:00,16.07,2026-04
+65213,BUILD: meson.build fails in Pandas 2.3.1 as of earlier today due to meson 1.11 update,other,2026-04-13 18:49:19+00:00,0.15,2026-04
+65210,API: Index.take discards fill_value and raises unnecessarily,bug,2026-04-13 17:28:10+00:00,14.14,2026-04
+65190,ENH: Simplify reading vertically stacked CSV tables,other,2026-04-12 13:48:48+00:00,0.04,2026-04
+65160,PERF: Specify `how` when calling `merge._factorize_keys` when possible,other,2026-04-10 22:35:32+00:00,18.07,2026-04
+65150,BUG: pd.to_timedelta ignores unit value for certain float values,other,2026-04-10 13:25:48+00:00,10.29,2026-04
+65140,"BUG: `groupby(..., as_index=False)[col].ohlc()` returns group keys in the index",bug,2026-04-09 22:54:16+00:00,0.99,2026-04
+65122,ENH: Add DataFrame.memory_report() for actionable dtype optimization suggestions,other,2026-04-08 14:35:08+00:00,1.16,2026-04
+65100,BUG: `GroupBy.any()`/`all()` on NumPy `bool` columns return `NaN` for empty groups and upcast to `float64` instead of `bool`,bug,2026-04-06 19:36:19+00:00,0.75,2026-04
+65068,DOC: Typo in the webpage docs/getting_started/intro_tutorials/09_timeseries.html,other,2026-04-04 13:38:42+00:00,0.14,2026-04
+65047,ENH/BUG: Utilize `_values_for_json` in `Series.to_json`,other,2026-04-03 03:26:47+00:00,55.41,2026-04
+65003,"PERF: DataFrame row-wise .loc assignment is much slower with string_storage=""pyarrow"" than ""python""",other,2026-04-02 13:05:00+00:00,7.21,2026-04
+65000,"BUG: `na_rep=""""` in `DataFrame.to_csv` not applied consistently",bug,2026-04-02 08:41:22+00:00,0.03,2026-04
+64994,DOC: Clarify Series index alignment in DataFrame.assign,other,2026-04-01 21:50:14+00:00,34.79,2026-04
+64978,BUG: read_parquet fails with tz aware data,bug,2026-04-01 12:19:42+00:00,9.19,2026-04
+64968,BUG: pyarrow-backed string dtype addition with missing value scalar fails,bug,2026-03-31 18:52:08+00:00,15.75,2026-03
+64941,"BUG: `str.replace("""", """")` sometimes hangs up the console",bug,2026-03-31 08:45:09+00:00,28.27,2026-03
+64888,BUILD: Update Pandas on Skills Network,other,2026-03-27 08:33:54+00:00,0.3,2026-03
+64883,PERF: sort_index on RangeIndex with level= copies data blocks unnecessarily,other,2026-03-26 17:52:58+00:00,25.97,2026-03
+64866,DOC: bool vs int in object-dtype methods,other,2026-03-26 00:39:12+00:00,21.79,2026-03
+64844,BUG: numpy array type is not being respected in `Index` constructor,other,2026-03-25 18:13:15+00:00,48.97,2026-03
+64841,"ENH: add method=""time"" to .reindex() to interpolate timeseries to different DatetimeIndex",other,2026-03-25 16:03:22+00:00,0.27,2026-03
+64834,BUG: bdate_range returns one less days when end and periods are given,other,2026-03-24 23:44:58+00:00,30.37,2026-03
+64828,BUG: Timedelta.round() raises ZeroDivisionError when internal unit is 's' and target frequency is sub-second,other,2026-03-24 19:00:20+00:00,16.94,2026-03
+64819,BUG: DataFrames with backwards time index cannot be plotted,other,2026-03-24 05:16:52+00:00,7.51,2026-03
+64750,DOC: `[source]` links are incorrect,other,2026-03-21 15:43:10+00:00,9.76,2026-03
+64749,BUG: can no longer use `__getitem__` on `np.True_` column with `True`,other,2026-03-21 14:49:46+00:00,4.41,2026-03
+64747,QST: كيف احصل على بيانات الاسهم من ياهو فايننس على اكسل,other,2026-03-21 10:31:04+00:00,0.45,2026-03
+64744,Pandas dataframe does not initialize,bug,2026-03-21 00:21:45+00:00,0.65,2026-03
+64738,ENH: Add coerce errors functionality to pandas.Series.apply,other,2026-03-20 14:21:34+00:00,0.07,2026-03
+64737,BUG: case_when() does return default string type,bug,2026-03-20 11:44:33+00:00,0.03,2026-03
+64730,BLD|CI: Failing to Build Wheels on macosx_x86_64,other,2026-03-19 22:43:08+00:00,0.8,2026-03
+64713,BUG:,bug,2026-03-19 15:04:13+00:00,0.03,2026-03
+64707,DIST: Include Vendored Licenses in Wheel,other,2026-03-19 12:39:33+00:00,1.25,2026-03
+64704,convert_dtypes corrupts column shape on sliced DataFrame with mixed dtypes,other,2026-03-19 11:29:46+00:00,0.22,2026-03
+64702,BUG: Wrong dataframe data after `convert_dtypes`,bug,2026-03-19 10:11:31+00:00,1.7,2026-03
+64681,DOC: incomplete sentence in Styler docstring,other,2026-03-18 08:59:15+00:00,1.68,2026-03
+64657,BUG: DataFrame.sum() crashes on empty DataFrame with string + numeric columns,bug,2026-03-17 14:37:56+00:00,13.01,2026-03
+64656,BUG:,bug,2026-03-17 14:35:16+00:00,0.0,2026-03
+64655,"BUG: C engine of `read_csv` converts `1 ,` to an integer",bug,2026-03-17 13:56:52+00:00,41.98,2026-03
+64635,BUG: mask(inplace=True) gives where() results in EA recursive path,other,2026-03-16 21:28:09+00:00,9.73,2026-03
+64633,DOC: missing redirect for moved docs,other,2026-03-16 20:02:08+00:00,0.51,2026-03
+64627,ENH: Proposal for pd.col() for multi-column and regex column selection,other,2026-03-16 12:21:50+00:00,0.78,2026-03
+64622,BUG/DOC: Migration User Guide is missing (404),other,2026-03-15 22:33:19+00:00,31.71,2026-03
+64604,BUG: Need to be able to specify location of legacy files for tests,bug,2026-03-15 16:29:06+00:00,32.14,2026-03
+64597,"Deprecate `engine=""fastparquet""` in `pd.read_parquet`",other,2026-03-14 18:29:25+00:00,12.02,2026-03
+64584,DOC: HTTP 522 when trying to load Pandas documentation website,other,2026-03-13 15:57:35+00:00,4.96,2026-03
+64555,PERF: dates.apply(lambda x: 100 * x.year + x.month) in Stata writer can be vectorized,other,2026-03-12 06:01:52+00:00,7.13,2026-03
+64546,BUG: Plotting with duplicate column names gives misleading error,bug,2026-03-12 01:06:31+00:00,10.73,2026-03
+64524,BUG: `read_html` parses nested table incorrectly when using `html5lib` or `bs4` flavors,bug,2026-03-11 06:36:03+00:00,46.27,2026-03
+64511,BUG: Assigning pd.NA to ArrowStringArray after 3-way slice concat silently corrupts other rows,bug,2026-03-10 21:31:44+00:00,0.55,2026-03
+64460,DEPR: deprecate set_eng_float_format,other,2026-03-07 22:42:00+00:00,41.77,2026-03
+64458,"DOC: Fix incorrect Sphinx cross references in older, whatsnew restructred text files.",other,2026-03-07 19:42:11+00:00,13.87,2026-03
+64446,DOC: Public APIs missing from the API reference documentation,other,2026-03-07 07:05:59+00:00,0.49,2026-03
+64428,BUG: `DataFrame.div()` ignores `axis`,bug,2026-03-06 17:37:05+00:00,9.74,2026-03
+64426,Double braces used in docs in `read_csv`,other,2026-03-06 16:36:01+00:00,0.0,2026-03
+64419,DOC: rendering bug - `{{ }}` shown instead of `{ }` across API documentation,other,2026-03-06 10:47:10+00:00,0.46,2026-03
+64395,DEPR: float_precision in read_csv,other,2026-03-05 02:22:04+00:00,21.66,2026-03
+64394,DOC: Example of a `dict` for the `dtype` argument is wrong,other,2026-03-04 20:36:43+00:00,1.74,2026-03
+64393,BUG: error when summing string to `pa.large_string`-backed Series,bug,2026-03-04 15:21:11+00:00,50.45,2026-03
+64383,BUG: DataFrame.sort_index does fails with `AssertionError`,bug,2026-03-03 13:14:42+00:00,23.15,2026-03
+64381,DOC: Typo in Cheatsheet regarding df.dtypes,other,2026-03-03 10:14:05+00:00,6.28,2026-03
+64363,PERF: datetime index getters functions are 10 times slower with ZoneInfo vs pytz timezone,other,2026-03-02 13:34:04+00:00,64.8,2026-03
+64349,BUG: large memory allocation when attempting to convert an int/float dict of arrays into dataframe,other,2026-02-28 20:40:33+00:00,2.77,2026-02
+64322,"BUG: Regression with interpolate: ""ValueError: window shape cannot be larger than input array shape""",other,2026-02-26 14:31:28+00:00,8.0,2026-02
+64320,"BUG: Assigning pd.NA to StringDtype column causes ""Unknown error: Wrapping .. failed"" after pd.concat with PyArrow",bug,2026-02-26 11:00:23+00:00,12.97,2026-02
+64315,Test Issue from API,other,2026-02-26 01:52:02+00:00,0.45,2026-02
+64314,Test Issue from API,other,2026-02-26 01:50:10+00:00,0.45,2026-02
+64313,Test Issue from API,other,2026-02-26 01:49:47+00:00,0.45,2026-02
+64312,Test Issue from API,other,2026-02-26 01:49:30+00:00,0.45,2026-02
+64310,BUG: HDFStore.select(where=...) silently returns empty DataFrame with datetime64[us] index,other,2026-02-25 20:24:11+00:00,1.76,2026-02
+64303,PERF: DataFrame.describe() calls Series.reindex() N times instead of once,other,2026-02-25 07:22:50+00:00,0.6,2026-02
+64281,BUG: test_dt64arr_cmp_arraylike_invalid[tzlocal] fails on Windows,bug,2026-02-23 08:35:59+00:00,91.17,2026-02
+64271,BUG: `generate_version.py` line ending breaks build (WSL),bug,2026-02-22 00:56:05+00:00,0.0,2026-02
+64267,BUG: Error message when using pd.col() and power operator ** in new expression syntax,bug,2026-02-21 19:06:04+00:00,1.95,2026-02
+64263,Suggestion: link a RAG / LLM debugging checklist (WFGY Problem Map) in the docs,other,2026-02-21 15:25:23+00:00,0.26,2026-02
+64250,PERF: object-dtype iloc setitem with datetimelike list-like indexers is slow on large arrays,other,2026-02-20 07:36:39+00:00,49.33,2026-02
+64249,PERF: object-dtype iloc setitem with datetimelike list-like indexers is slow on large arrays,other,2026-02-20 07:26:48+00:00,0.0,2026-02
+64240,BUG: Inconsistent handling of offsets in `to_timedelta`,bug,2026-02-19 15:56:21+00:00,37.07,2026-02
+64229,PERF: loc/iloc setitem with list-of-lists unnecessarily round-trips through object array,other,2026-02-18 19:00:58+00:00,35.22,2026-02
+64224,DOC: wrong source link for `pandas.DataFrame` because of __module__ changes,other,2026-02-18 15:12:07+00:00,70.73,2026-02
+64223,DOC: source links not working: 404 on GitHub,other,2026-02-18 15:01:12+00:00,16.09,2026-02
+64219,DOC: Pandas 3.0 blogpost has invalid str migration link,other,2026-02-18 11:24:28+00:00,0.18,2026-02
+64214,DOC: Clarify deprecation and removal of Substitution and Appender classes,other,2026-02-18 06:43:40+00:00,0.47,2026-02
+64208,BUG: test_assignment_not_inplace incorrectly xfailed due to wrong assertion,bug,2026-02-17 22:18:15+00:00,0.99,2026-02
+64207,DEPR: Offset.name,other,2026-02-17 21:34:42+00:00,10.92,2026-02
+64192,DOC: Version 3.0.0 has does not mention deprecation of non-keyword agruments in to_excel,other,2026-02-17 14:26:57+00:00,0.58,2026-02
+64188,BUG: normalize_json no longer supports top-level missing entries,bug,2026-02-17 13:07:23+00:00,35.83,2026-02
+64180,BUG: to_hdf on dataframe with string column failing with compression,bug,2026-02-17 07:57:56+00:00,37.48,2026-02
+64172,DOC: Redundant and misspelled command in docs,other,2026-02-16 21:42:18+00:00,0.46,2026-02
+64146,PERF: `DataFrame.merge(sort=False)` slow for unsorted single-key integer joins when other side is sorted/unique and range-like,other,2026-02-14 16:31:00+00:00,48.32,2026-02
+64144,DOC:  Improve description on Series.case_when,other,2026-02-14 16:17:57+00:00,49.2,2026-02
+64141,Not needed RuntimeWarning in to_datetime from dataframe with missing values,other,2026-02-14 15:10:46+00:00,20.29,2026-02
+64129,BUG: unique().item() query no longer possible since unique() method no longer returns array,bug,2026-02-13 00:33:43+00:00,0.52,2026-02
+64126,PERF: Avoid drop_duplicates(keep=False) in DataFrame.__getitem__ for single-column access,other,2026-02-12 19:48:41+00:00,3.98,2026-02
+64123,BUG: Different result from str.find depending on dtype,bug,2026-02-12 00:14:15+00:00,46.56,2026-02
+64094,DOC: explain the float_precision parameter,other,2026-02-09 15:33:58+00:00,45.11,2026-02
+64070,ENH: add `pd.col` to `pd.DataFrame.case_when`,other,2026-02-08 03:15:41+00:00,34.59,2026-02
+64069,"DOC: Broken external links in ""Debugging C extensions"" documentation",other,2026-02-07 16:57:51+00:00,3.25,2026-02
+64060,"BUG: pandas 3.0.0 and pyarrow 21.0.0, pd.merge left join with 3 keys incorrectly matches a NaN key with a non-NaN value.",bug,2026-02-07 06:05:21+00:00,10.36,2026-02
+64056,DOC: v2.3 source link goes to main branch,other,2026-02-06 17:39:54+00:00,4.61,2026-02
+64055,BUG: pandas read_sas not working anymore,bug,2026-02-06 15:31:02+00:00,0.29,2026-02
+64047,BUG: Reindexing with fill_value,bug,2026-02-05 21:41:01+00:00,0.02,2026-02
+64044,BUG: pd.to_timedelta unit inconsistently handled,bug,2026-02-05 20:19:58+00:00,5.87,2026-02
+64038,ENH: Allow merge to override columns,other,2026-02-05 13:41:49+00:00,3.95,2026-02
+64037,BUG: wrong type nan values series,other,2026-02-05 13:11:29+00:00,0.12,2026-02
+64028,DOC: Intersphinx references to common items break on latest docs,other,2026-02-04 18:30:51+00:00,40.11,2026-02
+64011,"DOC: Code example includes Python REPL prompts (>>>), causing copy-paste errors",other,2026-02-03 19:41:34+00:00,0.03,2026-02
+64007,BUG: Index is incorrectly de-serialised by fastparquet after mulitple parquets written to different io.BytesIO streams with DataFrame.to_parquet,bug,2026-02-03 14:19:08+00:00,101.54,2026-02
+64006,"BUG: `pd.read_hdf` unable to retrieve a pd.Series with dtype as ""datetime64"" since v3.0.0",bug,2026-02-03 13:11:37+00:00,14.11,2026-02
+64002,ENH: Refactor: centralize describe function selection,other,2026-02-03 07:08:44+00:00,5.13,2026-02
+63993,BUG: `DataFrame.reindex` with multiple `columns` and a string `fill_value` raises `AssertionError` with `3.0.0`,bug,2026-02-02 20:19:05+00:00,8.59,2026-02
+63991,"DOC: GroupBy API is showing under ""typing"" instead of ""groupby""",other,2026-02-02 18:19:50+00:00,0.13,2026-02
+63990,"DOC: dev docs missing version, also banner",other,2026-02-02 17:58:35+00:00,6.7,2026-02
+63967,PERF: Offset classes access private variables via properties instead of directly in offsets.pyx,other,2026-01-31 19:16:37+00:00,4.92,2026-01
+63957,ENH: Allow `np.ndarray` in `check_result_array` for certain `dtype`,other,2026-01-31 00:52:03+00:00,16.92,2026-01
+63939,BUG: unary operators not supported with `pd.col`,bug,2026-01-29 19:35:57+00:00,1.95,2026-01
+63935,BUG: 3.0.0 Regression - can no longer shuffle `Series[string]` with numpy,bug,2026-01-29 11:57:45+00:00,11.22,2026-01
+63921,BUG: import pandas ImportError: DLL load failed while importing base,bug,2026-01-28 21:31:18+00:00,0.01,2026-01
+63920,BUG: groupby with observed=False assigns rows with NaN categorical keys to wrong groups,bug,2026-01-28 21:08:51+00:00,2.88,2026-01
+63917,Pandas,other,2026-01-28 19:44:38+00:00,0.01,2026-01
+63913,BUG: Cannot access groups when using `.groupby(dropna=False)`,bug,2026-01-28 13:52:55+00:00,0.38,2026-01
+63903,"BUG: Pandas converts nullable int to float, even when this loses data",bug,2026-01-27 18:04:37+00:00,20.17,2026-01
+63899,BUG: DataFrame derived from Index can mutate the Index,bug,2026-01-27 14:04:01+00:00,1.29,2026-01
+63889,BUG: Handling of `None` column name in `from_records()` is now all-NaN instead of values,bug,2026-01-26 17:45:31+00:00,15.0,2026-01
+63879,BUG: Conversion from numpy masked arrays to pandas array does not preserve missing values,bug,2026-01-26 07:01:05+00:00,21.63,2026-01
+63876,BUG: AttributeError: 'ArrowStringArray' object has no attribute 'item',bug,2026-01-25 21:49:16+00:00,22.95,2026-01
+63863,ENH: Data Entropy & Information Loss Tracking for DataFrame Transformations,other,2026-01-25 09:58:56+00:00,2.33,2026-01
+63818,DOC: `DataFrame.stack()` should be updated for 3.0,other,2026-01-22 23:10:10+00:00,47.53,2026-01
+63811,DOC: 3.0 release notes has an odd contributor issue,other,2026-01-22 14:54:13+00:00,1.15,2026-01
+63810,DOC: add py:type reference targets to each entry in pandas.api.typing.aliases,other,2026-01-22 13:26:52+00:00,12.32,2026-01
+63804,BUILD: Docs dependency fails on Python 3.14 due to outdated sphinx-theme-builder,other,2026-01-22 05:35:09+00:00,0.41,2026-01
+63794,DOC: Typo in 3.0.0 release notes,other,2026-01-21 14:46:42+00:00,0.04,2026-01
+63790,BUG: sort_values() does not retain Name property of Dataframe,bug,2026-01-21 10:26:09+00:00,1.49,2026-01
+63787,BUG: Inconsistent BOM handling in pd.read_csv with encoding='utf-8',bug,2026-01-21 07:51:36+00:00,39.55,2026-01
+63774,BUG: `DataFrame.from_records` ignores exclude argument when `nrows=0`,bug,2026-01-20 15:06:53+00:00,50.03,2026-01
+63767,DOC: suggestion for getting started guide on selecting data,other,2026-01-20 02:39:16+00:00,4.56,2026-01
+63745,"ERR: better error message when doing `convert_dtypes(dtype_backend=""pyarrow"")` without pyarrow installed",bug,2026-01-18 23:41:14+00:00,58.86,2026-01
+63742,PERF: Improve performance of named aggregations with no relabling,other,2026-01-18 18:54:15+00:00,14.04,2026-01
+63739,BUG: str methods fail with regex backreferences on PyArrow dtype,bug,2026-01-18 17:51:09+00:00,2.15,2026-01
+63738,BUG: Regex backreferences fail on PyArrow backend (RE2 limitation),other,2026-01-18 17:46:52+00:00,0.0,2026-01
+63735,BUG: sort_values fails on columns with more than 2^18 entries,bug,2026-01-18 13:50:54+00:00,2.05,2026-01
+63721,Cleanup: Add type: ignore comments for comparison-overlap in datetimes.py,other,2026-01-17 16:07:05+00:00,0.04,2026-01
+63708,BUG: `pd.read_spss()` generates `attrs` that cause `DataFrame.to_parquet` to crash when generating JSON metadata.,bug,2026-01-16 14:57:29+00:00,0.11,2026-01
+63701,BLD: fix all compile warnings and re-enable -Werror on CI,other,2026-01-15 16:32:41+00:00,94.91,2026-01
+63687,ENH: `Timestamp.round`: officially accept `Timedelta` arguments,other,2026-01-14 19:41:18+00:00,103.26,2026-01
+63686,BUG: mesonbuild versioning in environment.yml,bug,2026-01-14 18:15:39+00:00,0.92,2026-01
+63685,BUG: data races when simultaneously reading data frames in multiple threads,bug,2026-01-14 17:35:21+00:00,25.03,2026-01
+63681,BUG: ExcelWriter can't use ISFORMULA in conditional formatting,bug,2026-01-14 11:21:28+00:00,0.16,2026-01
+63650,BUG: pd.to_numeric Segmentation fault,bug,2026-01-12 08:24:36+00:00,59.33,2026-01
+63649,DOC: Clarification needed on free-threaded (3.14t) Windows wheel availability in 2.3.3 release notes,other,2026-01-12 07:23:24+00:00,1.12,2026-01
+63640,BUG: Missing explicit libm dependency in meson.build causes undefined symbol errors,bug,2026-01-11 04:53:40+00:00,23.9,2026-01
+63636,"ENH: Create `.rdiff()`, like `.diff()` but reversed, like `.rsub()` and `.sub()`",other,2026-01-10 21:40:09+00:00,0.67,2026-01
+63630,BUG: Reading from CSV files with mixed numbers and letters leads to Segmentation Fault,bug,2026-01-10 09:11:54+00:00,14.24,2026-01
+63604,"BUG:  DataFrame from an array of dictionaries, has missing columns",bug,2026-01-07 13:14:19+00:00,0.01,2026-01
+63603,"ENH: stock_board_industry_name_em() be better,if add two items.",other,2026-01-07 12:30:22+00:00,0.21,2026-01
+63599,ENH: read_csv raises ParserError or hangs on certain malformed inputs,other,2026-01-06 22:58:25+00:00,2.94,2026-01
+63581,BUG: iloc[0] raises ValueError with SparseArray column and numpy array column,bug,2026-01-06 01:07:20+00:00,67.68,2026-01
+63567,"BUG: `pd.array([float(""nan"")], str)` does not convert to `pd.NA`",bug,2026-01-04 11:15:30+00:00,0.18,2026-01
+63557,ENH: Add .center() method to DataFrame/Series for inspecting middle rows.,other,2026-01-03 06:36:14+00:00,0.27,2026-01
+63555,DOC: Fix SA01 for pandas.StringDtype.na_value,other,2026-01-03 06:22:24+00:00,0.28,2026-01
+63553,"DOC: Fix SA01,ES01,PR07 for pandas.util.hash_pandas_object",other,2026-01-03 05:53:42+00:00,0.3,2026-01
+63551,ENH: Decay-weighted rolling aggregations with defined behavior for duplicate timestamps,other,2026-01-03 02:32:57+00:00,27.7,2026-01
+63540,"DOC: Fix SA01,EX01 for pandas.DataFrame.from_arrow",other,2026-01-02 10:42:19+00:00,1.1,2026-01
 63521,BUG: comparison of categoricals with NA,bug,2025-12-31 11:01:37+00:00,0.13,2025-12
 63518,BUG: pd.Grouper converts PyArrow timestamp to numpy datetime64,bug,2025-12-31 02:09:34+00:00,1.72,2025-12
 63489,ENH: drop function should take kwarg rows,other,2025-12-26 23:06:58+00:00,0.59,2025-12
