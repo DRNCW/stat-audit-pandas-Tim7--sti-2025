@@ -1,6 +1,6 @@
 # Statistical Audit: pandas-dev/pandas
 
-> **Mata Kuliah:** Statistika & Probabilitas — S1 Teknik Informatika 2025 
+> **Mata Kuliah:** Statistika & Probabilitas — S1 Sistem Teknologi Informasi 2025 
 > **Kelas:** A  
 > **Semester:** Genap 2025/2026
 
@@ -44,17 +44,18 @@ Ketiga pertanyaan penelitian berikut menjadi **benang merah** seluruh analisis:
 
 ---
 
-## 3. Temuan Utama (diperbarui setiap checkpoint)
+## 3. Findings (diperbarui setiap checkpoint)
 
 > *Akan diisi setelah semua notebook selesai (10 Juni 2026)*
 
 ---
 
-## 4. Cara Menjalankan
+## 4. How-to-Run
 
 ### Prasyarat
 - Python 3.10+
 - Git
+- GitHub Personal Access Token (PAT) dengan scope `public_repo`
 
 ### Instalasi
 
@@ -80,6 +81,9 @@ jupyter notebook notebooks/
 ```
 
 ### Urutan Notebook
+
+> Jalankan secara **berurutan** — setiap notebook bergantung pada output notebook sebelumnya.
+
 ```
 01_eda.ipynb          → Jalankan pertama (menghasilkan data/clean/dataset.csv)
 02_estimation.ipynb   → Jalankan setelah 01
@@ -90,38 +94,7 @@ jupyter notebook notebooks/
 
 ---
 
-## 5. Struktur Repository
-
-```
-stat-audit-pandas-sti-2025/
-├── README.md
-├── AI_USAGE_LOG.md
-├── requirements.txt
-├── data/
-│   ├── raw/          ← Data mentah dari GitHub API (jangan diubah)
-│   └── clean/        ← dataset.csv hasil cleaning
-├── src/
-│   ├── __init__.py
-│   ├── collect_data.py   ← Pengumpulan data GitHub API
-│   ├── estimator.py      ← MLE, Beta posterior (Member B)
-│   ├── inference.py      ← CI frequentist & Bayesian (Member C)
-│   ├── hypothesis.py     ← Z-test satu & dua sampel (Member D)
-│   └── simulation.py     ← Monte Carlo, Bloom Filter, MCMC (Member E)
-├── notebooks/
-│   ├── 01_eda.ipynb
-│   ├── 02_estimation.ipynb
-│   ├── 03_confidence_interval.ipynb
-│   ├── 04_hypothesis_testing.ipynb
-│   └── 05_simulation.ipynb
-├── report/
-│   └── statistical_health_report.pdf
-└── presentation/
-    └── video_link.md
-```
-
----
-
-## 6. Tim
+## 5. Team Table
 
 | Member | Nama | NIM | Peran |
 |--------|------|-----|-------|
@@ -131,15 +104,23 @@ stat-audit-pandas-sti-2025/
 | D | [Bonita Zhafira Mulyowijoyo] | [1519625035] | Hypothesis Analyst |
 | E | [Kumara Tsany Widyadana] | [1519625034] | Computation Analyst |
 
----
-
-## 7. Sumber Data
-
-- **Repository:** https://github.com/pandas-dev/pandas
-- **API:** GitHub REST API v3 (`/repos/pandas-dev/pandas/issues`, `/pulls`)
-- **Rentang data:** Januari 2020 — Mei 2026
-- **Keterbatasan:** GitHub API membatasi 5.000 request/jam per token; data diambil menggunakan pagination
+> Rantai ketergantungan: **A → B → C, D → E**
 
 ---
+
+## 7. Sumber Data & Referensi
+
+**Data**
+- Repositori target: ["pandas-dev/pandas"](https://github.com/pandas-dev/pandas)
+- API: [GitHub REST API v3](https://docs.github.com/en/rest) — endpoint "/repos/{owner}/{repo}/pulls" dan "/search/issues"
+- Rentang data: 1 Januari 2021 – 31 Desember 2025
+
+**Referensi**
+- Tsun. (2020). *Probability & Statistics with Applications to Computing*, Chapters 7–9.
+- [pandas 2.0.0 Release Notes](https://pandas.pydata.org/docs/whatsnew/v2.0.0.html) *(rilis: 3 April 2023)*
 
 *Semua formula mengacu pada: Tsun, Probability & Statistics with Applications to Computing, 2020, Chapters 7–9.*
+
+---
+
+
