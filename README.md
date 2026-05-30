@@ -108,7 +108,7 @@ jupyter notebook notebooks/
 
 ---
 
-## 7. Sumber Data & Referensi
+## 6. Sumber Data & Referensi
 
 **Data**
 - Repositori target: ["pandas-dev/pandas"](https://github.com/pandas-dev/pandas)
