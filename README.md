@@ -1,14 +1,28 @@
 # Statistical Audit: pandas-dev/pandas
 
-> **Mata Kuliah:** Statistika & Probabilitas — S1 Teknik Informatika 2024  
-> **Kelas:** S124  
+> **Mata Kuliah:** Statistika & Probabilitas — S1 Teknik Informatika 2025 
+> **Kelas:** A  
 > **Semester:** Genap 2025/2026
+
+---
+
+## Daftar Isi
+1. [Deskripsi Proyek](#1-deskripsi-proyek)
+2. [Research Questions](#2-research-questions)
+3. [Finding](#3-Finding)
+4. [How-to-Run](#4-How-to-Run)
+5. [Team Table](#5-tim)
+6. [Sumber Data & Referensi](#6-sumber-data--referensi)
 
 ---
 
 ## 1. Deskripsi Proyek
 
-Repository ini berisi **Statistical Health Report** dari proyek open-source [pandas-dev/pandas](https://github.com/pandas-dev/pandas) — library Python paling populer untuk manipulasi dan analisis data, dengan lebih dari 42.000 ⭐ di GitHub.
+Repository ini berisi **Statistical Health Report** dari proyek open-source [pandas-dev/pandas](https://github.com/pandas-dev/pandas) — library Python paling populer untuk manipulasi dan analisis data, dengan jutaan pengguna aktif di seluruh dunia.
+
+Repositori ini dipilih karena memenuhi seluruh kriteria teknis (≥1.000 closed issues, ≥500 merged PRs, data bertimestamp lengkap), sekaligus memiliki momen rilis pandas 2.0 (3 April 2023) yang menjadi titik pemisah alami untuk menguji perubahan perilaku proyek secara statistik.
+
+Analisis mencakup data dari 1 Januari 2021 hingga 31 Desember 2025, dan diambil melalui GitHub REST API v3.
 
 Audit statistik ini menerapkan konsep dari **Minggu 11–14**:
 - **Estimasi Parameter** (MLE, Beta Posterior)
@@ -32,7 +46,7 @@ Ketiga pertanyaan penelitian berikut menjadi **benang merah** seluruh analisis:
 
 ## 3. Temuan Utama (diperbarui setiap checkpoint)
 
-> ⏳ *Akan diisi setelah semua notebook selesai (10 Juni 2026)*
+> *Akan diisi setelah semua notebook selesai (10 Juni 2026)*
 
 ---
 
@@ -111,11 +125,11 @@ stat-audit-pandas-sti-2025/
 
 | Member | Nama | NIM | Peran |
 |--------|------|-----|-------|
-| A | [Nama Member A] | [NIM] | Data Engineer |
-| B | [Nama Member B] | [NIM] | Estimation Analyst |
-| C | [Nama Member C] | [NIM] | Inference Analyst |
-| D | [Nama Member D] | [NIM] | Hypothesis Analyst |
-| E | [Nama Member E] | [NIM] | Computation Analyst |
+| A | [Darren Chandra Wijaya] | [1519625019] | Data Engineer |
+| B | [Muhammad Zulhaydar Omar Rafiq] | [1519625046] | Estimation Analyst |
+| C | [Michelle Fiorentina Won] | [1519625024] | Inference Analyst |
+| D | [Bonita Zhafira Mulyowijoyo] | [1519625035] | Hypothesis Analyst |
+| E | [Kumara Tsany Widyadana] | [1519625034] | Computation Analyst |
 
 ---
 
