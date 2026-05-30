@@ -1,29 +1,64 @@
-def mle_bernoulli(k, n):
+import numpy as np
+from scipy.special import factorial
+
+def mle_bernoulli(data):
     """
-    Menghitung Maximum Likelihood Estimation (MLE) untuk distribusi Bernoulli.
-    k = jumlah kejadian sukses (misal: PR yang di-merge)
-    n = jumlah total percobaan (misal: total PR)
+    Calculates the Maximum Likelihood Estimator for a Bernoulli distribution.
+    Formula: theta_hat = k / n (Tsun, 2020, p. 254)
     """
+    n = len(data)
     if n == 0:
-        return 0
-    return k / n
+        return 0.0
+    k = np.sum(data)
+    return float(k / n)
 
-def mle_poisson(data_list):
+def mle_poisson(data):
     """
-    Menghitung Maximum Likelihood Estimation (MLE) untuk distribusi Poisson.
-    data_list = list/array dari data diskrit.
+    Calculates the Maximum Likelihood Estimator for a Poisson distribution.
+    Formula: lambda_hat = sum(data) / len(data) (Tsun, 2020, p. 254)
     """
-    if len(data_list) == 0:
-        return 0
-    return sum(data_list) / len(data_list)
+    n = len(data)
+    if n == 0:
+        return 0.0
+    return float(np.sum(data) / n)
 
-def beta_posterior_params(k, m):
+def beta_posterior(k, m):
     """
-    Menghitung parameter Alpha dan Beta untuk distribusi Posterior Beta.
-    Wajib menggunakan prior Uniform Beta(1,1), sehingga rumusnya menjadi +1.
-    k = kejadian sukses
-    m = kejadian gagal
+    Calculates the Beta posterior parameters and its mode and mean.
+    Formula: alpha = k + 1, beta = m + 1 (Tsun, 2020, p. 269)
+    Mode: (alpha - 1) / (alpha + beta - 2) (Tsun, 2020, p. 269)
+    Mean: alpha / (alpha + beta) (Tsun, 2020, p. 269)
     """
-    alpha_post = k + 1
-    beta_post = m + 1
-    return alpha_post, beta_post
+    alpha = int(k + 1)
+    beta = int(m + 1)
+    
+    mode = float((alpha - 1) / (alpha + beta - 2))
+    mean = float(alpha / (alpha + beta))
+    
+    return {
+        "alpha": alpha,
+        "beta": beta,
+        "mode": mode,
+        "mean": mean
+    }
+
+def log_likelihood_bernoulli(theta, k, n):
+    """
+    Computes the log-likelihood for a Bernoulli distribution.
+    Formula: ln L(theta) = k * ln(theta) + (n - k) * ln(1 - theta)
+    """
+    theta = np.clip(theta, 1e-12, 1.0 - 1e-12)
+    return float(k * np.log(theta) + (n - k) * np.log(1 - theta))
+
+def log_likelihood_poisson(lam, data):
+    """
+    Computes the log-likelihood for a Poisson distribution.
+    Formula: ln L(lambda) = -n*lambda + ln(lambda)*sum(data) - sum(ln(x!))
+    """
+    if lam <= 0:
+        return -np.inf
+    n = len(data)
+    sum_data = np.sum(data)
+    # Gunakan pendekatan log-gamma untuk menghindari overflow pada pencarian nilai faktorial besar
+    from scipy.special import gammaln
+    return float(-n * lam + np.log(lam) * sum_data - np.sum(gammaln(data + 1)))
