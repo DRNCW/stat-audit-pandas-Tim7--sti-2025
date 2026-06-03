@@ -49,7 +49,7 @@ print("  ")
 #SEL 7 - VISUALISASI
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
-#Plot 1 - Time series Subplot
+# Plot 1 - Time series Subplot
 ax1 = axes[0]
 ax1.plot(pre['timestamp'], pre['bug_count'].values, color='steelblue', marker='o', markersize=4, label='Pre v2.0')
 ax1.plot(post['timestamp'], post['bug_count'].values, color='tomato', marker='o', markersize=4, label='Post v2.0')
@@ -63,7 +63,7 @@ ax1.legend()
 ax1.grid(alpha=0.3)
 
 
-# #Plot 2 - Boxplot
+# Plot 2 - Boxplot
 ax2 = axes[1]
 bp = ax2.boxplot([pre['bug_count'].values, post['bug_count'].values],
                  patch_artist=True,
@@ -125,5 +125,46 @@ else:
     print(f"   p-value ({p_value:.4f}) >= a ({alpha}) -> GAGAL TOLAK Ho")
     print("  Tidak ada bukti perbedaan signifikan")
 print("=" * 50)
+
+
+
+print("  ")
+
+
+
+# SEL 9 - VISUALISASI Z-TEST
+fig, ax = plt.subplots(figsize=(10, 5))
+
+x = np.linspace(-4, 4, 400)
+y = stats.norm.pdf(x)
+
+ax.plot(x, y, 'black', linewidth=2)
+
+# Arsir rejection region
+ax.fill_between(x, y, where=(x <= -z_crit), color='tomato', alpha=0.4, label=f'Rejection region (|Z| > {z_crit:.2f})')
+ax.fill_between(x, y, where=(x >=  z_crit), color='tomato', alpha=0.4)
+
+# Garis Z hitung
+ax.axvline(Z, color='blue', linestyle='--', linewidth=2, label=f'Z hitung = {Z:.4f}')
+ax.axvline(-z_crit, color='red', linestyle=':', linewidth=1.5)
+ax.axvline( z_crit, color='red', linestyle=':', linewidth=1.5, label=f'Z kritis = +-{z_crit:.2f}')
+
+ax.set_title('Distribusi Z — Uji Hipotesis Dua Sisi (a = 0.05)', fontsize=13)
+ax.set_xlabel('Z')
+ax.set_ylabel('Densitas')
+ax.legend()
+ax.grid(alpha=0.3)
+plt.tight_layout()
+save_path = os.path.join(current_dir, '..', 'data', 'clean', 'hypothesis_plot.png')
+plt.savefig(save_path, dpi=150, bbox_inches='tight')  
+plt.show()
+print("Plot Z-test tersimpan di data/clean/hypothesis_plot.png")
+
+
+
+
+
+
+
 
 
