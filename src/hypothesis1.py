@@ -43,6 +43,9 @@ print(f"Rata-rata bug per bulan before: {pre_mean:.2f}")
 print(f"Rata-rata bug per bulan after: {post_mean:.2f}")
 
 
+print("  ")
+
+
 #SEL 7 - VISUALISASI
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
@@ -60,7 +63,7 @@ ax1.legend()
 ax1.grid(alpha=0.3)
 
 
-#Plot 2 - Boxplot
+# #Plot 2 - Boxplot
 ax2 = axes[1]
 bp = ax2.boxplot([pre['bug_count'].values, post['bug_count'].values],
                  patch_artist=True,
@@ -78,5 +81,49 @@ plt.show()
 print("Plot tersimpan di data/clean/hypothesis_plot.png")
 
 
+print("  ")
+
+
+# ============================================================
+# Z-TEST DUA SAMPEL INDEPENDEN
+# Asumsi distribusi Poisson → variansi ≈ rata-rata (MLE)
+# ============================================================
+
+n1, n2     = len(pre), len(post)
+x_bar1     = pre['bug_count'].mean()
+x_bar2     = post['bug_count'].mean()
+
+# Untuk data count (Poisson), var = mean → gunakan var sampel
+var1 = pre['bug_count'].var(ddof=1)   # s1²
+var2 = post['bug_count'].var(ddof=1)  # s2²
+
+# Hitung Z statistik secara manual
+SE   = np.sqrt(var1/n1 + var2/n2)    # Standard Error
+Z    = (x_bar1 - x_bar2) / SE        # Z statistic
+# p-value two-tailed
+p_value = 2 * (1 - stats.norm.cdf(abs(Z)))
+
+# Z kritis untuk α = 0.05 two-tailed
+alpha    = 0.05
+z_crit   = stats.norm.ppf(1 - alpha/2)   # ≈ 1.96
+
+print("=" * 50)
+print("   - HASIL Z-TEST DUA SAMPEL -   ")
+print("=" * 50)
+print(f"  x_bar pre-v2      = {x_bar1:.4f}  (n={n1})")
+print(f"  x_bar post-v2     = {x_bar2:.4f}  (n={n2})")
+print(f"  Selisih (D)    = {x_bar1 - x_bar2:.4f}")
+print(f"  Standard Error = {SE:.4f}")
+print(f"  Z hitung       = {Z:.4f}")
+print(f"  Z kritis (a=0.05, 2-tail) = +-{z_crit:.4f}")
+print(f"  p-value        = {p_value:.6f}")
+print()
+if p_value < alpha:
+    print(f"   p-value ({p_value:.4f}) < a ({alpha}) -> TOLAK Ho")
+    print("  Ada perbedaan signifikan setelah pandas 2.0")
+else:
+    print(f"   p-value ({p_value:.4f}) >= a ({alpha}) -> GAGAL TOLAK Ho")
+    print("  Tidak ada bukti perbedaan signifikan")
+print("=" * 50)
 
 
