@@ -14,8 +14,6 @@ file_path = os.path.join(current_dir, '..', 'data', 'clean', 'monthly_bugs.csv')
 # ============================================================
 df = pd.read_csv(file_path)  
 df['timestamp'] = pd.to_datetime(df['timestamp'])   
-print(f"Dataset Shape: {df.shape}")   
-print(df.head())
 
 # ============================================================
 # SEL 5: SPLIT DATA BERDASARKAN RILIS PANDAS 2.0
@@ -24,17 +22,11 @@ cut = pd.Timestamp('2023-04-01')
 pre = df[df['timestamp'] < cut].copy()
 post = df[df['timestamp'] >= cut].copy()
 
-print(f"Data sebelum April 2023 (Pre-v2.0): {len(pre)} bulan")
-print(f"Data sesudah April 2023 (Post-v2.0): {len(post)} bulan")
-
 # ============================================================
 # SEL 6: HITUNG RATA-RATA LAJU BUG BULANAN (MLE POISSON)
 # ============================================================
 pre_mean = pre['bug_count'].mean()
 post_mean = post['bug_count'].mean()
-
-print(f"Rata-rata bug per bulan (Pre-v2.0): {pre_mean:.4f}")
-print(f"Rata-rata bug per bulan (Post-v2.0): {post_mean:.4f}")
 
 # ============================================================
 # SEL 7: VISUALISASI TIME-SERIES & BOXPLOT
@@ -66,14 +58,10 @@ ax2.set_title('Distribusi Bug Per Bulan', fontsize=13)
 ax2.grid(alpha=0.3, axis='y')
 
 plt.tight_layout()
-save_path_plot = os.path.join(current_dir, '..', 'data', 'clean', 'hypothesis_plot.png')
-plt.savefig(save_path_plot, dpi=150, bbox_inches='tight')
 plt.show()
-print(f"Plot komparasi tersimpan di: {save_path_plot}")
 
 # ============================================================
 # SEL 8: INDEPENDENT TWO-SAMPLED Z-TEST (KONSISTENSI POISSON)
-# Di bawah asumsi model Poisson, nilai Variansi = Nilai Mean
 # ============================================================
 n1, n2 = len(pre), len(post)
 
@@ -83,37 +71,17 @@ var2_poisson = post_mean
 
 # Hitung Standard Error dan Z-Statistik secara analitik tepat
 SE = np.sqrt(var1_poisson/n1 + var2_poisson/n2)    
-Z = (pre_mean - post_mean) / SE        
+Z = (pre_mean - post_mean) / SE    
 p_value = 2 * (1 - stats.norm.cdf(abs(Z)))
 
 alpha = 0.05
 z_crit = stats.norm.ppf(1 - alpha/2)   # Nilai kritis dua sisi (~1.96)
 
-print("\n" + "="*50)
-print("   - HASIL POISSON Z-TEST DUA SAMPEL (REVISI) -   ")
-print("="*50)
-print(f"  Mean Laju Bug Pre-v2.0 ($\lambda_1$)  = {pre_mean:.4f}  (n={n1})")
-print(f"  Mean Laju Bug Post-v2.0 ($\lambda_2$) = {post_mean:.4f}  (n={n2})")
-print(f"  Selisih Efek Absolut (D)      = {pre_mean - post_mean:.4f}")
-print(f"  Standard Error Poisson (SE)   = {SE:.4f}")
-print(f"  Z hitung                      = {Z:.4f}")
-print(f"  Z kritis (alpha=0.05, 2-tail) = +-{z_crit:.4f}")
-print(f"  p-value                       = {p_value:.6e}")
-print("-" * 50)
-
-if p_value < alpha:
-    print(f"  Keputusan: p-value ({p_value:.4e}) < alpha ({alpha}) -> TOLAK Ho")
-    print("  Kesimpulan: Ada perbedaan laju bug bulanan yang sangat signifikan pasca rilis Pandas 2.0.")
-else:
-    print(f"  Keputusan: p-value ({p_value:.4e}) >= alpha ({alpha}) -> GAGAL TOLAK Ho")
-    print("  Kesimpulan: Tidak cukup bukti statistik untuk menyatakan adanya perbedaan laju bug.")
-print("="*50 + "\n")
-
 # ============================================================
 # SEL 9: VISUALISASI DAERAH PENOLAKAN Z-TEST
 # ============================================================
 fig, ax = plt.subplots(figsize=(10, 5))
-x_axis = np.linspace(-4, 12, 500) # Perlebar batas x karena nilai Z hitung kalian sangat tinggi
+x_axis = np.linspace(-4, 12, 500) # Batas x diperlebar karena nilai Z hitung riil sangat tinggi (9.0985)
 y_axis = stats.norm.pdf(x_axis, 0, 1)
 
 ax.plot(x_axis, y_axis, 'black', linewidth=2, label='Distribusi Standar Normal Z')
@@ -134,7 +102,4 @@ ax.legend(loc='upper right')
 ax.grid(alpha=0.3)
 
 plt.tight_layout()
-save_path_z = os.path.join(current_dir, '..', 'data', 'clean', 'z_distribution_plot.png')
-plt.savefig(save_path_z, dpi=150, bbox_inches='tight')  
 plt.show()
-print(f"Plot distribusi Z-test berhasil diperbarui dan disimpan di: {save_path_z}")
