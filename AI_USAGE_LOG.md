@@ -8,7 +8,7 @@
 | Muhammad Zulhaydar Omar Rafiq | Parameter Estimator | Gemini Pro      | ~60%                | No                                |
 | Michelle Fiorentina Wong      | Inference Analyst   | Claude & GPT    | ~60%                | No                                |
 | Bonita Zhafira Mulyowijoyo    | Hypothesis Analyst  | Claude          | ~65%                | No                                |
-| Kumara Tsany Widyadana        | Computation Analyst | GPT             | ~50%                | No                                |
+| Kumara Tsany Widyadana        | Computation Analyst | GPT             | ~65%                | No                                |
 
 ---
 
