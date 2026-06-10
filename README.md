@@ -46,7 +46,67 @@ Ketiga pertanyaan penelitian berikut menjadi **benang merah** seluruh analisis:
 
 ## 3. Findings (diperbarui setiap checkpoint)
 
-> *Akan diisi setelah semua notebook selesai (10 Juni 2026)*
+>### Member A – Data Engineer (EDA & Data Collection)
+
+Research Questions Addressed: RQ1, RQ2, RQ3
+
+Data dikumpulkan dari GitHub API repositori pandas-dev/pandas (Jan 2021 – Des 2025),
+menghasilkan tiga dataset bersih: prs_clean.csv (3.228 PR valid), monthly_bugs.csv
+(60 bulan data bug), dan issues_full.csv (seluruh issue valid). EDA menunjukkan
+mayoritas PR berhasil di-merge (~70%), rata-rata bug turun dari 60.56 menjadi
+43.39/bulan pasca rilis Pandas 2.0, dan distribusi waktu penyelesaian issue bersifat
+right-skewed dengan sebagian issue melampaui 30 hari.
+
+
+### Member B – Parameter Estimator (MLE Bernoulli & Poisson)
+
+Research Questions Addressed: RQ1, RQ2
+
+Dari 3.228 sampel PR, MLE Bernoulli menghasilkan θ‌ = 0.7085 (70.85% PR
+berhasil di-merge) dengan Beta posterior α = 2288, β = 942. Untuk RQ2, MLE
+Poisson menghasilkan laju bug λ‌₁ = 60.56/bulan (pre-v2.0) dan
+λ‌₂ = 43.39/bulan  (post-v2.0). Kedua nilai λ ini diteruskan sebagai
+input utama pengujian hipotesis di Notebook 04.
+
+
+### Member C - Inference Analyst ( Confidence Interval )
+
+Research Questions : 
+RQ1 – Probabilitas Pull Request Di-merge
+
+Analisis menunjukkan bahwa probabilitas sebuah pull request berhasil di-merge diperkirakan sebesar 70,85%. Confidence Interval Bernoulli 95% ((0,6928 ; 0,7242)) dan Bayesian Credible Interval 95% ((0,6926 ; 0,7239)) memberikan hasil yang hampir identik. Temuan ini menunjukkan bahwa probabilitas merge berada pada kisaran 69%–72% dengan tingkat ketidakpastian yang relatif rendah.
+
+RQ2 – Laju Laporan Bug Bulanan
+
+Analisis Poisson menghasilkan estimasi rata-rata jumlah bug sebesar 50,95 bug per bulan dengan Confidence Interval 95% ((49,16 ; 52,79)). Rentang interval yang relatif sempit menunjukkan bahwa laju laporan bug bulanan cukup stabil selama periode observasi. Hasil ini menjadi dasar untuk pengujian hipotesis pada tahap berikutnya guna mengevaluasi apakah terdapat perubahan signifikan setelah rilis pandas 2.0.
+
+Secara keseluruhan, hasil inferensi menunjukkan bahwa estimasi parameter memiliki tingkat presisi yang baik. Probabilitas merge pull request diperkirakan berada pada rentang 69%–72%, sedangkan laju rata-rata bug bulanan berada pada rentang 49–53 bug per bulan.
+
+
+### Member D – Hypothesis Analyst (Two-Sample Z-Test)
+
+Research Question: Apakah rata-rata jumlah laporan bug per bulan berubah
+secara signifikan setelah rilis Pandas 2.0 (April 2023)?
+
+Pengujian two-sample Z-test berbasis model Poisson terhadap 60 data bulanan
+menunjukkan rata-rata bug turun dari 60.56 menjadi 43.39/bulan (selisih
+17.16). Z hitung = 9.0985 jauh melampaui Z kritis ±1.96 dengan p-value ≈ 0,
+sehingga H₀ ditolak — terdapat penurunan signifikan pada laporan bug
+setelah rilis Pandas 2.0, dikonfirmasi pula oleh visualisasi boxplot yang
+menunjukkan kedua periode tidak tumpang tindih.
+
+
+### Member E – Computational Analyst (Monte Carlo, Bloom Filter, MCMC)
+
+Research Question: RQ3 — Probabilitas issue > 30 hari & akurasi Bloom Filter
+
+Simulasi Monte Carlo (10.000 sampel bootstrap) memperkirakan probabilitas issue
+membutuhkan waktu lebih dari 30 hari sebesar 41.17%, mengonfirmasi distribusi
+right-skewed pada data. Bloom Filter dengan kapasitas 10.000 bit mengalami saturasi
+(fill rate 86.62%) sehingga FPR teoritis mencapai 65.39% — kapasitas optimal
+yang direkomendasikan adalah 37.880 bit. Simulasi MCMC (Metropolis-Hastings,
+10.000 iterasi) turut mengeksplorasi anomali long-tail sebagai landasan proyeksi
+risiko backlog jangka panjang.
 
 ---
 
