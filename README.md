@@ -100,13 +100,7 @@ menunjukkan kedua periode tidak tumpang tindih.
 
 Research Question: RQ3 — Probabilitas issue > 30 hari & akurasi Bloom Filter
 
-Simulasi Monte Carlo (10.000 sampel bootstrap) memperkirakan probabilitas issue
-membutuhkan waktu lebih dari 30 hari sebesar 41.17%, mengonfirmasi distribusi
-right-skewed pada data. Bloom Filter dengan kapasitas 10.000 bit mengalami saturasi
-(fill rate 86.62%) sehingga FPR teoritis mencapai 65.39% — kapasitas optimal
-yang direkomendasikan adalah 37.880 bit. Simulasi MCMC (Metropolis-Hastings,
-10.000 iterasi) turut mengeksplorasi anomali long-tail sebagai landasan proyeksi
-risiko backlog jangka panjang.
+Simulasi Monte Carlo dengan 10.000 bootstrap menghasilkan probabilitas sebesar 41,09% bahwa sebuah issue membutuhkan waktu penyelesaian lebih dari 30 hari. Bloom Filter dengan kapasitas 10.000 bit menghasilkan fill rate sebesar 86,62% dan False Positive Rate sebesar 65,41%, yang menunjukkan penurunan akurasi saat tingkat keterisian bit semakin tinggi. Sementara itu, simulasi MCMC sebanyak 10.000 iterasi menunjukkan distribusi durasi penyelesaian issue yang cenderung right-skewed, di mana sebagian besar issue selesai dalam waktu relatif singkat, namun masih terdapat sejumlah kecil issue yang membutuhkan waktu penyelesaian jauh lebih lama.
 
 ---
 
