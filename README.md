@@ -90,7 +90,7 @@ secara signifikan setelah rilis Pandas 2.0 (April 2023)?
 
 Pengujian two-sample Z-test berbasis model Poisson terhadap 60 data bulanan
 menunjukkan rata-rata bug turun dari 60.56 menjadi 43.39/bulan (selisih
-17.16). Z hitung = 9.0985 jauh melampaui Z kritis ±1.96 dengan p-value ≈ 0,
+17.16). Z hitung = 4.0864 jauh melampaui Z kritis ±1.96 dengan p-value ≈ 0,000044
 sehingga H₀ ditolak — terdapat penurunan signifikan pada laporan bug
 setelah rilis Pandas 2.0, dikonfirmasi pula oleh visualisasi boxplot yang
 menunjukkan kedua periode tidak tumpang tindih.
